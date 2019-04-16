@@ -23,12 +23,15 @@ namespace Timeticker
     {
         private DispatcherTimer dispatcherTimer = new DispatcherTimer();
         private List<NotificationWindow> _dialogs = new List<NotificationWindow>();
+        private double topFrom;
         public MainWindow()
         {
             InitializeComponent();
+            topFrom = GetTopFrom();
             dispatcherTimer.Tick += new EventHandler(TimeCycle);
             dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
             dispatcherTimer.Start();
+            this.DataContext = FocusHelper.GetTroops();
         }
 
         private void TimeCycle(object sender, EventArgs e)
@@ -47,7 +50,7 @@ namespace Timeticker
 
                     NotificationWindow dialog = new NotificationWindow();//new 一个通知
                     dialog.Closed += Dialog_Closed;
-                    dialog.TopFrom = GetTopFrom();
+                    dialog.TopFrom = topFrom;
                     _dialogs.Add(dialog);
                     events[i].IsNotify = true;
                     dialog.DataContext = data;//设置通知里要显示的数据
@@ -89,5 +92,7 @@ namespace Timeticker
 
             EventHelper.AddEvent(new EventModel { EventTime = TimerHelper.ConvertEventTime(event_Time.Text.Trim()), Remark = event_Remark.Text.Trim() });
         }
+
+
     }
 }

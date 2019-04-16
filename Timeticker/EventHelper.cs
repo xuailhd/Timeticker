@@ -15,7 +15,7 @@ namespace Timeticker
         {
             for (int i = eventModels.Count - 1; i >= 0; i--)
             {
-                if (eventModels[i].EventTime.AddSeconds(outDelay).CompareTo(DateTime.Now) < 0)
+                if (eventModels[i].EventTime.CompareTo(DateTime.Now) < 0)
                 {
                     eventModels.RemoveAt(i);
                 }

@@ -13,62 +13,68 @@
         <Label Content="备注" HorizontalAlignment="Left" Margin="151,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.44,-0.071"/>
         <TextBox HorizontalAlignment="Left" Name="event_Remark" Height="23" Margin="190,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="106"/>
         <Button Content="添加" HorizontalAlignment="Left" Name="btnAddEvent" Margin="301,12,0,0" VerticalAlignment="Top" Width="46" Height="26" Padding="2,1,2,3" Click="btnAddEvent_Click"/>
-        <DataGrid HorizontalAlignment="Left" Name="event_Grid" Height="329" Margin="10,40,0,0" VerticalAlignment="Top" Width="337" 
+        <DataGrid HorizontalAlignment="Left" Name="event_Grid" Height="319" Margin="10,40,0,0" VerticalAlignment="Top" Width="337" 
                   RenderTransformOrigin="0.15,0.317" GridLinesVisibility="Horizontal" Background="White" BorderThickness="1" 
                   AutoGenerateColumns="False" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{ Binding Remark, Mode=OneTime}" Header="备注" Width="150"/>
                 <DataGridTextColumn Binding="{ Binding CountDownStr, Mode=OneTime}" Header="倒计时" Width="80"/>
-                <DataGridTextColumn Binding="{ Binding EventTimeStr, Mode=OneTime}" Header="完成时点" Width="110"/>
+                <DataGridTextColumn Binding="{ Binding EventTimeStr, Mode=OneTime}" Header="完成时点" Width="105"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Label Content="距离" HorizontalAlignment="Left" Margin="504,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="5.489,1.723"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="539,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
         <Label Content="部队" HorizontalAlignment="Left" Margin="372,41,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="407,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
-        <Label Content="距离" HorizontalAlignment="Left" Margin="504,76,0,0" VerticalAlignment="Top" RenderTransformOrigin="5.489,1.723"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="539,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
+        <TextBox HorizontalAlignment="Left" Text="{Binding Troops[0].Name, Mode=TwoWay}"  Name="troops1_Name" Height="23" Margin="407,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
+        <Label Content="距离" HorizontalAlignment="Left" Margin="504,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="5.489,1.723"/>
+        <TextBox HorizontalAlignment="Left" Text="{Binding Troops[0].Distance, Mode=TwoWay}"  Name="troops1_Distance" Height="23" Margin="539,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
+        <ComboBox HorizontalAlignment="Left" SelectedValue="{Binding Troops[0].Used, Mode=TwoWay}" Name="troops1_Used" Margin="641,41,0,0" VerticalAlignment="Top" Width="60" Height="23">
+            <ListBoxItem Content="可用"/>
+            <ListBoxItem Content="不可用"/>
+        </ComboBox>
+        <Label HorizontalAlignment="Left" Content="{Binding Troops[0].Countdown, Mode=TwoWay}" Name="troops1_Countdown" Margin="706,41,0,0" VerticalAlignment="Top" Width="38" Height="23" Uid="CountDown1"/>
+
         <Label Content="部队" HorizontalAlignment="Left" Margin="372,76,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="407,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
-        <Label Content="距离" HorizontalAlignment="Left" Margin="504,112,0,0" VerticalAlignment="Top" RenderTransformOrigin="5.489,1.723"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="539,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
+        <TextBox HorizontalAlignment="Left" Height="23"  Text="{Binding Troops[1].Name, Mode=TwoWay}" Name="troops2_Name" Margin="407,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
+        <Label Content="距离" HorizontalAlignment="Left" Margin="504,76,0,0" VerticalAlignment="Top" RenderTransformOrigin="5.489,1.723"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Text="{Binding Troops[1].Distance, Mode=TwoWay}" Name="troops2_Distance" Margin="539,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
+        <ComboBox HorizontalAlignment="Left" SelectedValue="{Binding Troops[1].Used, Mode=TwoWay}" Name="troops2_Used" Margin="641,76,0,0" VerticalAlignment="Top" Width="60" Height="23">
+            <ListBoxItem Content="可用"/>
+            <ListBoxItem Content="不可用"/>
+        </ComboBox>
+        <Label HorizontalAlignment="Left" Content="{Binding Troops[1].Countdown, Mode=TwoWay}" Name="troops2_Countdown" Margin="706,76,0,0" VerticalAlignment="Top" Width="38" Height="23" Uid="CountDown2"/>
+        
         <Label Content="部队" HorizontalAlignment="Left" Margin="372,112,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="407,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
-        <Label Content="距离" HorizontalAlignment="Left" Margin="504,147,0,0" VerticalAlignment="Top" RenderTransformOrigin="5.489,1.723"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="539,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Name="troops3_Name" Margin="407,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
+        <Label Content="距离" HorizontalAlignment="Left" Margin="504,112,0,0" VerticalAlignment="Top" RenderTransformOrigin="5.489,1.723"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Name="troops3_Long" Margin="539,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
+        <ComboBox HorizontalAlignment="Left" Name="troops3_Used" Margin="641,112,0,0" VerticalAlignment="Top" Width="60" Height="23">
+            <ListBoxItem Content="可用"/>
+            <ListBoxItem Content="不可用"/>
+        </ComboBox>
+        <Label Content="" HorizontalAlignment="Left" Name="troops3_Countdown" Margin="706,112,0,0" VerticalAlignment="Top" Width="38" Height="23" Uid="CountDown3"/>
+        
         <Label Content="部队" HorizontalAlignment="Left" Margin="372,147,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="407,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
-        <Label Content="距离" HorizontalAlignment="Left" Margin="504,183,0,0" VerticalAlignment="Top" RenderTransformOrigin="5.489,1.723"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="539,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Name="troops4_Name" Margin="407,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
+        <Label Content="距离" HorizontalAlignment="Left" Margin="504,147,0,0" VerticalAlignment="Top" RenderTransformOrigin="5.489,1.723"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Name="troops4_Long" Margin="539,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
+        <ComboBox HorizontalAlignment="Left" Name="troops4_Used" Margin="641,147,0,0" VerticalAlignment="Top" Width="60" Height="23">
+            <ListBoxItem Content="可用"/>
+            <ListBoxItem Content="不可用"/>
+        </ComboBox>
+        <Label Content="" HorizontalAlignment="Left" Name="troops4_Countdown" Margin="706,147,0,0" VerticalAlignment="Top" Width="38" Height="23" Uid="CountDown4"/>
+        
         <Label Content="部队" HorizontalAlignment="Left" Margin="372,183,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="407,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
-        <ComboBox HorizontalAlignment="Left" Margin="641,41,0,0" VerticalAlignment="Top" Width="60" Height="23">
+        <TextBox HorizontalAlignment="Left" Height="23" Name="troops5_Name" Margin="407,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
+        <Label Content="距离" HorizontalAlignment="Left" Margin="504,183,0,0" VerticalAlignment="Top" RenderTransformOrigin="5.489,1.723"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Name="troops5_Long" Margin="539,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
+        <ComboBox HorizontalAlignment="Left" Name="troops5_Used" Margin="641,183,0,0" VerticalAlignment="Top" Width="60" Height="23">
             <ListBoxItem Content="可用"/>
             <ListBoxItem Content="不可用"/>
         </ComboBox>
-        <ComboBox HorizontalAlignment="Left" Margin="641,76,0,0" VerticalAlignment="Top" Width="60" Height="23">
-            <ListBoxItem Content="可用"/>
-            <ListBoxItem Content="不可用"/>
-        </ComboBox>
-        <ComboBox HorizontalAlignment="Left" Margin="641,112,0,0" VerticalAlignment="Top" Width="60" Height="23">
-            <ListBoxItem Content="可用"/>
-            <ListBoxItem Content="不可用"/>
-        </ComboBox>
-        <ComboBox HorizontalAlignment="Left" Margin="641,147,0,0" VerticalAlignment="Top" Width="60" Height="23">
-            <ListBoxItem Content="可用"/>
-            <ListBoxItem Content="不可用"/>
-        </ComboBox>
-        <ComboBox HorizontalAlignment="Left" Margin="641,183,0,0" VerticalAlignment="Top" Width="60" Height="23">
-            <ListBoxItem Content="可用"/>
-            <ListBoxItem Content="不可用"/>
-        </ComboBox>
-        <Label Content="" HorizontalAlignment="Left" Margin="706,41,0,0" VerticalAlignment="Top" Width="38" Height="23" Uid="CountDown1"/>
-        <Label Content="" HorizontalAlignment="Left" Margin="706,76,0,0" VerticalAlignment="Top" Width="38" Height="23" Uid="CountDown2"/>
-        <Label Content="" HorizontalAlignment="Left" Margin="706,112,0,0" VerticalAlignment="Top" Width="38" Height="23" Uid="CountDown3"/>
-        <Label Content="" HorizontalAlignment="Left" Margin="706,147,0,0" VerticalAlignment="Top" Width="38" Height="23" Uid="CountDown4"/>
-        <Label Content="" HorizontalAlignment="Left" Margin="706,183,0,0" VerticalAlignment="Top" Width="38" Height="23" Uid="CountDown5"/>
-        <Button Content="开始" HorizontalAlignment="Left" Margin="600,216,0,0" VerticalAlignment="Top" Width="46"  Height="26" Padding="2"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="503,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
+        <Label Content="" HorizontalAlignment="Left" Name="troops5_Countdown" Margin="706,183,0,0" VerticalAlignment="Top" Width="38" Height="23" Uid="CountDown5"/>
+
         <Label Content="集火时间" HorizontalAlignment="Left" Margin="440,216,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="503,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
+        <Button Content="开始" HorizontalAlignment="Left" Margin="600,216,0,0" VerticalAlignment="Top" Width="46"  Height="26" Padding="2"/>
+        
     </Grid>
 </Window>

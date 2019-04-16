@@ -62,13 +62,17 @@ namespace Timeticker
             }
             timestr = Strings.StrConv(timestr.Trim(), VbStrConv.Narrow);
             var times = timestr.Split(':');
-            if (times.Length < 2 || times.Length > 3)
+            if (times.Length < 1 || times.Length > 3)
             {
                 return DateTime.MinValue;
             }
             try
             {
-                if (times.Length == 2)
+                if(times.Length == 1)
+                {
+                    return DateTime.Now.AddSeconds(Convert.ToInt32(times[0]));
+                }
+                else if (times.Length == 2)
                 {
                     return DateTime.Now.AddMinutes(Convert.ToInt32(times[0])).AddSeconds(Convert.ToInt32(times[1]));
                 }
